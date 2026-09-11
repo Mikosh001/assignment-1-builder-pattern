@@ -1,47 +1,29 @@
-# Assignment #1 - Builder Pattern
+# Builder Pattern Assignment
 
-This project demonstrates the Builder creational design pattern by constructing an immutable `Computer` product step by step.
+This is a small Java project that shows the Builder pattern. The product is a
+computer with a processor, memory, storage, graphics card, operating system and
+peripherals.
 
-The two concrete builders create meaningfully different representations:
+There are two builders:
 
-- `StudyComputerBuilder` creates a balanced study configuration with integrated graphics.
-- `GamingComputerBuilder` creates a high-performance configuration and validates gaming-specific requirements.
+- `StudyComputerBuilder` creates a computer for study.
+- `GamingComputerBuilder` creates a gaming computer.
 
-`ComputerDirector` assembles reusable study and gaming setups. `Main` also shows direct fluent customization without the Director.
+`ComputerDirector` contains two ready configurations. A builder can also be used
+directly when a custom computer is needed.
 
-## Project structure
+## Run the project
 
-```text
-src/main/java/kz/edu/assignment/builder/
-  Computer.java                 Product
-  ComputerBuilder.java          Builder interface
-  AbstractComputerBuilder.java  Shared construction and validation
-  StudyComputerBuilder.java     ConcreteBuilder 1
-  GamingComputerBuilder.java    ConcreteBuilder 2
-  ComputerDirector.java         Director
-  Main.java                     Client/demo
-uml/
-  builder-pattern.puml          PlantUML source
-```
-
-## Requirements
-
-- JDK 17 or newer
-
-## Compile and run
-
-From the repository root in PowerShell:
+JDK 17 or newer is required. Run these commands from the project folder:
 
 ```powershell
 New-Item -ItemType Directory -Force out/main | Out-Null
 $mainSources = Get-ChildItem src/main/java -Recurse -Filter *.java
 javac --release 17 -d out/main $mainSources
-java -cp out/main kz.edu.assignment.builder.Main
+java -cp out/main builder.Main
 ```
 
-Expected demo: a study setup, a gaming setup, and a customized gaming setup are printed.
-
-## Build each representation directly
+## Example
 
 ```java
 Computer studyComputer = new StudyComputerBuilder().build();
@@ -52,10 +34,5 @@ Computer gamingComputer = new GamingComputerBuilder()
         .build();
 ```
 
-The same builders can be used through the reusable Director presets:
-
-```java
-ComputerDirector director = new ComputerDirector();
-Computer studySetup = director.createStudySetup();
-Computer gamingSetup = director.createGamingSetup();
-```
+The UML source is in `uml/builder-pattern.puml`. It can be opened with a
+PlantUML plugin to view the class diagram.
