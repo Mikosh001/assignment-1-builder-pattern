@@ -21,7 +21,11 @@ public final class GamingComputerBuilder extends AbstractComputerBuilder {
     @Override
     protected void validateSpecificConfiguration() {
         if (currentMemoryGb() < MINIMUM_GAMING_MEMORY_GB) {
-            throw new IllegalStateException("Gaming computer requires at least 16 GB of memory");
+            throw new IllegalStateException(
+                    "Gaming computer requires at least "
+                            + MINIMUM_GAMING_MEMORY_GB
+                            + " GB of memory"
+            );
         }
         if (INTEGRATED_GRAPHICS.equalsIgnoreCase(currentGraphicsCard())) {
             throw new IllegalStateException("Gaming computer requires a dedicated graphics card");

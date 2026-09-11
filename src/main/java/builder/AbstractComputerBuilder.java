@@ -97,7 +97,9 @@ public abstract class AbstractComputerBuilder implements ComputerBuilder {
 
     private static void requirePositive(int value, String fieldName) {
         if (value < MINIMUM_CAPACITY_GB) {
-            throw new IllegalStateException(fieldName + " must be at least 1 GB");
+            throw new IllegalStateException(
+                    fieldName + " must be at least " + MINIMUM_CAPACITY_GB + " GB"
+            );
         }
     }
 }
