@@ -1,0 +1,62 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+enum ComputerType {
+  STUDY
+  GAMING
+}
+
+class Computer {
+  - type: ComputerType
+  - processor: String
+  - memoryGb: int
+  - storageGb: int
+  - graphicsCard: String
+  - operatingSystem: String
+  - peripherals: List<String>
+  + getters()
+}
+
+interface ComputerBuilder {
+  + processor(value: String): ComputerBuilder
+  + memoryGb(value: int): ComputerBuilder
+  + storageGb(value: int): ComputerBuilder
+  + graphicsCard(value: String): ComputerBuilder
+  + operatingSystem(value: String): ComputerBuilder
+  + addPeripheral(value: String): ComputerBuilder
+  + build(): Computer
+}
+
+abstract class AbstractComputerBuilder {
+  - type: ComputerType
+  - processor: String
+  - memoryGb: int
+  - storageGb: int
+  - graphicsCard: String
+  - operatingSystem: String
+  - peripherals: List<String>
+  # validateSpecificConfiguration(): void
+  + build(): Computer
+}
+
+class StudyComputerBuilder
+class GamingComputerBuilder
+class ComputerDirector {
+  + createStudySetup(): Computer
+  + createGamingSetup(): Computer
+}
+class Main {
+  + main(args: String[]): void
+}
+
+ComputerBuilder <|.. AbstractComputerBuilder
+AbstractComputerBuilder <|-- StudyComputerBuilder
+AbstractComputerBuilder <|-- GamingComputerBuilder
+AbstractComputerBuilder ..> Computer : creates
+Computer --> ComputerType
+ComputerDirector ..> StudyComputerBuilder
+ComputerDirector ..> GamingComputerBuilder
+Main ..> ComputerDirector
+Main ..> GamingComputerBuilder
+@enduml
+
