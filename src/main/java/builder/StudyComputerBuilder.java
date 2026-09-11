@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 public final class StudyComputerBuilder extends AbstractComputerBuilder {
     private static final String DEFAULT_PROCESSOR = "Intel Core i5";
@@ -21,4 +21,3 @@ public final class StudyComputerBuilder extends AbstractComputerBuilder {
         // The shared validation is sufficient for the study configuration.
     }
 }
-

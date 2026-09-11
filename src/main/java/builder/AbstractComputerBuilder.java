@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,4 +100,3 @@ public abstract class AbstractComputerBuilder implements ComputerBuilder {
         }
     }
 }
-

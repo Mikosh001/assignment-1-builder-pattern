@@ -1,7 +1,6 @@
-package kz.edu.assignment.builder;
+package builder;
 
 public enum ComputerType {
     STUDY,
     GAMING
 }
-

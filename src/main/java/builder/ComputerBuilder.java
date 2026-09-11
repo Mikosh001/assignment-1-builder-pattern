@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 public interface ComputerBuilder {
     ComputerBuilder processor(String processor);
@@ -15,4 +15,3 @@ public interface ComputerBuilder {
 
     Computer build();
 }
-

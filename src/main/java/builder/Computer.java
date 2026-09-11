@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 import java.util.List;
 
@@ -70,4 +70,3 @@ public final class Computer {
                 '}';
     }
 }
-

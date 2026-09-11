@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 public final class Main {
     private Main() {
@@ -26,4 +26,3 @@ public final class Main {
         System.out.println();
     }
 }
-

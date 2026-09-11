@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 public final class ComputerDirector {
     private static final String WEBCAM = "Webcam";
@@ -20,4 +20,3 @@ public final class ComputerDirector {
                 .build();
     }
 }
-

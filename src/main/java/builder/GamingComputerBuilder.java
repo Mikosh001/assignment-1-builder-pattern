@@ -1,4 +1,4 @@
-package kz.edu.assignment.builder;
+package builder;
 
 public final class GamingComputerBuilder extends AbstractComputerBuilder {
     private static final String DEFAULT_PROCESSOR = "AMD Ryzen 7";
@@ -28,4 +28,3 @@ public final class GamingComputerBuilder extends AbstractComputerBuilder {
         }
     }
 }
-
