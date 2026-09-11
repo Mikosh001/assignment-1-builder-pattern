@@ -1,12 +1,16 @@
 @startuml
+!pragma layout smetana
 skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam monochrome true
+hide circle
 
 enum ComputerType {
   STUDY
   GAMING
 }
 
-class Computer {
+class Computer <<Product>> {
   - type: ComputerType
   - processor: String
   - memoryGb: int
@@ -14,10 +18,9 @@ class Computer {
   - graphicsCard: String
   - operatingSystem: String
   - peripherals: List<String>
-  + getters()
 }
 
-interface ComputerBuilder {
+interface ComputerBuilder <<Builder>> {
   + processor(value: String): ComputerBuilder
   + memoryGb(value: int): ComputerBuilder
   + storageGb(value: int): ComputerBuilder
@@ -28,28 +31,26 @@ interface ComputerBuilder {
 }
 
 abstract class AbstractComputerBuilder {
-  - type: ComputerType
-  - processor: String
-  - memoryGb: int
-  - storageGb: int
-  - graphicsCard: String
-  - operatingSystem: String
-  - peripherals: List<String>
   # validateSpecificConfiguration(): void
   + build(): Computer
 }
 
-class StudyComputerBuilder
-class GamingComputerBuilder
-class ComputerDirector {
+class StudyComputerBuilder <<ConcreteBuilder>> {
+  + StudyComputerBuilder()
+}
+class GamingComputerBuilder <<ConcreteBuilder>> {
+  + GamingComputerBuilder()
+  # validateSpecificConfiguration(): void
+}
+class ComputerDirector <<Director>> {
   + createStudySetup(): Computer
   + createGamingSetup(): Computer
 }
-class Main {
-  + main(args: String[]): void
+class Main <<Client>> {
+  {static} + main(args: String[]): void
 }
 
-ComputerBuilder <|.. AbstractComputerBuilder
+ComputerBuilder <|.. AbstractComputerBuilder : implements
 AbstractComputerBuilder <|-- StudyComputerBuilder
 AbstractComputerBuilder <|-- GamingComputerBuilder
 AbstractComputerBuilder ..> Computer : creates
@@ -59,4 +60,3 @@ ComputerDirector ..> GamingComputerBuilder
 Main ..> ComputerDirector
 Main ..> GamingComputerBuilder
 @enduml
-
