@@ -27,7 +27,7 @@ public final class GamingComputerBuilder extends AbstractComputerBuilder {
                             + " GB of memory"
             );
         }
-        if (INTEGRATED_GRAPHICS.equalsIgnoreCase(currentGraphicsCard())) {
+        if (INTEGRATED_GRAPHICS.equalsIgnoreCase(currentGraphicsCard().strip())) {
             throw new IllegalStateException("Gaming computer requires a dedicated graphics card");
         }
     }
