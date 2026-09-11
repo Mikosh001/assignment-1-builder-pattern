@@ -69,7 +69,8 @@ public abstract class AbstractComputerBuilder implements ComputerBuilder {
         );
     }
 
-    protected abstract void validateSpecificConfiguration();
+    protected void validateSpecificConfiguration() {
+    }
 
     protected final int currentMemoryGb() {
         return memoryGb;

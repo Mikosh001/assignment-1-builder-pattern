@@ -15,9 +15,4 @@ public final class StudyComputerBuilder extends AbstractComputerBuilder {
                 .graphicsCard(DEFAULT_GRAPHICS)
                 .operatingSystem(DEFAULT_OS);
     }
-
-    @Override
-    protected void validateSpecificConfiguration() {
-        // The shared validation is sufficient for the study configuration.
-    }
 }
